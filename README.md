@@ -1,7 +1,7 @@
 # Netflix
 This app was made for a computer science project
 
-#Credits:
+# Credits:
 Joel Chadwick
 Zachary Frankel
 Jake Wilkinson
