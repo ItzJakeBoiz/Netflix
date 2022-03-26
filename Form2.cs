@@ -90,7 +90,7 @@ namespace Netflix
                 return;
 
             }
-            WebRequest request = WebRequest.Create("https://backend-server.18jchadwick.repl.co/api/register/" + textBox1.Text + "/" + textBox2.Text+"/"+ comboBox2.Text + "/"+dateTimePicker1.Text);
+            WebRequest request = WebRequest.Create("https://backend-server.18jchadwick.repl.co/api/register/" + textBox1.Text + "/" + textBox2.Text+"/"+ comboBox2.Text + "/"+dateTimePicker1.Text + "/" + textBox3.Text);
             request.Proxy = null;
             request.Credentials = CredentialCache.DefaultCredentials;
             HttpWebResponse response = (HttpWebResponse)request.GetResponse();
@@ -134,6 +134,7 @@ namespace Netflix
         {
             textBox1.Text = "";
             textBox2.Text = "";
+            textBox3.Text = "";
             dateTimePicker1.Value = new DateTime(2000, 01, 01);
             comboBox2.SelectedIndex = comboBox2.FindStringExact("");
         }
