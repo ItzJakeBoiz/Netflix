@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.SuspendLayout();
             // 
             // flowLayoutPanel1
@@ -40,21 +39,11 @@
             this.flowLayoutPanel1.Size = new System.Drawing.Size(1576, 841);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
-            // webBrowser1
-            // 
-            this.webBrowser1.Location = new System.Drawing.Point(1, 0);
-            this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
-            this.webBrowser1.Name = "webBrowser1";
-            this.webBrowser1.Size = new System.Drawing.Size(1616, 904);
-            this.webBrowser1.TabIndex = 1;
-            this.webBrowser1.Visible = false;
-            // 
             // Form3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1600, 865);
-            this.Controls.Add(this.webBrowser1);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Name = "Form3";
             this.Text = "Form3";
@@ -65,6 +54,5 @@
         #endregion
 
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private System.Windows.Forms.WebBrowser webBrowser1;
     }
 }
