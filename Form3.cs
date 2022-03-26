@@ -9,8 +9,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
+using System.Text.Json;
+using System.Web.Script.Serialization;
 namespace Netflix
 {
+    
     public partial class Form3 : Form
     {
         private Size oldSize;
@@ -23,6 +27,12 @@ namespace Netflix
                 ResizeAll(cnt, base.Size);
 
             oldSize = base.Size;
+        }
+        public class Comments
+        {
+            public string name { get; set; }
+            public string link { get; set; }
+            public string genre { get; set; }
         }
         private void ResizeAll(Control control, Size newSize)
         {
@@ -38,9 +48,9 @@ namespace Netflix
         {
             Global.Token = token;
             InitializeComponent();
+            
 
-
-            //this.TopMost = true;
+            this.TopMost = true;
 
             this.FormBorderStyle = FormBorderStyle.None;
             this.WindowState = FormWindowState.Maximized;
@@ -49,10 +59,26 @@ namespace Netflix
             this.BackColor = Color.Transparent;
 
         }
+        public static Image GetImageFromPicPath(string strUrl)
+        {
+            Console.WriteLine(strUrl.ToString());
+            WebResponse wrFileResponse;
+            wrFileResponse = WebRequest.Create(strUrl).GetResponse();
+            using (Stream objWebStream = wrFileResponse.GetResponseStream())
+            {
+                return Image.FromStream(objWebStream);
+            }
+        }
+        private static readonly Regex sWhitespace = new Regex(@"\s+");
+        public static string ReplaceWhitespace(string input, string replacement)
+        {
+            return sWhitespace.Replace(input, replacement);
+        }
         public class Global
         {
-            public static string token;
             public static String Token { get; set; }
+            public static List<Comments> Videos { get; set; }
+
         }
         protected override void OnLoad(EventArgs e)
         {
@@ -62,27 +88,57 @@ namespace Netflix
             request.Credentials = CredentialCache.DefaultCredentials;
             HttpWebResponse response = (HttpWebResponse)request.GetResponse();
             string content = new StreamReader(response.GetResponseStream()).ReadToEnd();
-            string[] videos = content.Split(',');
-            foreach (var video in videos)
+            var serializer = new System.Web.Script.Serialization.JavaScriptSerializer();
+            List<Comments> videos = (List<Comments>)serializer.Deserialize(content, typeof(List<Comments>));
+            Global.Videos = videos;
+            Console.WriteLine(videos);
+            foreach (Comments video in videos)
             {
-                var web = new WebBrowser();
-                web.Parent = flowLayoutPanel1;
-                web.Size = new Size(300, 200);
-                base.OnLoad(e);
-                var embed = "<html><head>" +
-                "<meta http-equiv=\"X-UA-Compatible\" content=\"IE=Edge\"/>" +
-                "</head><body>" +
-                "<iframe width=\"300\" src=\"{0}\"" +
-                "frameborder = \"0\" allow = \"autoplay; encrypted-media\" allowfullscreen></iframe>" +
-                "</body></html>";
-                var url = video;
-                web.DocumentText = string.Format(embed, url);
+                Console.WriteLine(video);
+                var button = new Button();
+                button.Text = "";
+                button.BackgroundImageLayout = ImageLayout.Center;
+                button.BackgroundImage = GetImageFromPicPath("https://img.youtube.com/vi/"+ video.link + "/mqdefault.jpg");
+                
+                button.Parent = flowLayoutPanel1;
+                button.Size = new Size(320, 180);
+                button.Click += new EventHandler(this.GreetingBtn_Click);
+                button.Text = video.name;
+                button.Font = new Font("Ariel", 22);
+                button.Font = new Font(button.Font, FontStyle.Bold);
+                button.TextAlign = ContentAlignment.TopLeft;
+
+
             }
                 
             
         }
+        void GreetingBtn_Click(Object sender,EventArgs e)
+        {
+            foreach (Comments video in Global.Videos)
+            {
+                if(video.name == (sender as Button).Text)
+                {
+                    flowLayoutPanel1.Visible = false;
+                    webBrowser1.Visible = true;
+                    var embed = $"<html><head>" +
+    "<meta http-equiv=\"X-UA-Compatible\" content=\"IE=Edge\"/>" +
+    "</head><body>" +
+    "<iframe width=1890\"\" height=1050 src=\"{0}\"" +
+    "frameborder = \"0\" allow = \" encrypted-media\"></iframe>" +
+    "</body></html>";
+                    var url = "https://www.youtube.com/embed/"+ video.link;
+                    webBrowser1.DocumentText = string.Format(embed, url);
+                }
+            }
+        }
 
-        private void webBrowser1_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
+            private void webBrowser1_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
+        {
+
+        }
+
+        private void webBrowser1_DocumentCompleted_1(object sender, WebBrowserDocumentCompletedEventArgs e)
         {
 
         }
