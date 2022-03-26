@@ -35,3 +35,16 @@ E:\Documents\Netflix\obj\Release\Netflix.csproj.CoreCompileInputs.cache
 E:\Documents\Netflix\obj\Release\Netflix.csproj.CopyComplete
 E:\Documents\Netflix\obj\Release\Netflix.exe
 E:\Documents\Netflix\obj\Release\Netflix.pdb
+C:\Users\bdos\source\repos\aNetflix\obj\Release\Netflix.csproj.AssemblyReference.cache
+C:\Users\bdos\source\repos\aNetflix\obj\Release\Netflix.csproj.SuggestedBindingRedirects.cache
+C:\Users\bdos\source\repos\aNetflix\obj\Release\Interop.WMPLib.dll
+C:\Users\bdos\source\repos\aNetflix\obj\Release\AxInterop.WMPLib.dll
+C:\Users\bdos\source\repos\aNetflix\obj\Release\Netflix.csproj.ResolveComReference.cache
+C:\Users\bdos\source\repos\aNetflix\obj\Release\Netflix.Form1.resources
+C:\Users\bdos\source\repos\aNetflix\obj\Release\Netflix.Form2.resources
+C:\Users\bdos\source\repos\aNetflix\obj\Release\Netflix.Form3.resources
+C:\Users\bdos\source\repos\aNetflix\obj\Release\Netflix.Properties.Resources.resources
+C:\Users\bdos\source\repos\aNetflix\obj\Release\Netflix.csproj.GenerateResource.cache
+C:\Users\bdos\source\repos\aNetflix\obj\Release\Netflix.csproj.CoreCompileInputs.cache
+C:\Users\bdos\source\repos\aNetflix\obj\Release\Netflix.exe
+C:\Users\bdos\source\repos\aNetflix\obj\Release\Netflix.pdb
