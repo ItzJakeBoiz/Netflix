@@ -15,9 +15,17 @@ namespace Netflix
     public partial class Form2 : Form
     {
         private Size oldSize;
-        private void Form1_Load(object sender, EventArgs e) => oldSize = base.Size;
+        private void Form1_Load(object sender, EventArgs e)
+        {
 
-        protected override void OnResize(System.EventArgs e)
+        }
+
+        private void checkbxShowPas_CheckedChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        /*protected override void OnResize(System.EventArgs e)
         {
             base.OnResize(e);
 
@@ -35,18 +43,18 @@ namespace Netflix
             int height = newSize.Height - oldSize.Height;
             control.Top += (control.Top * height) / oldSize.Height;
             control.Height += (control.Height * height) / oldSize.Height;
-        }
+        }*/
         public Form2()
         {
 
             InitializeComponent();
-            this.FormClosed +=
+            /*this.FormClosed +=
            new System.Windows.Forms.FormClosedEventHandler(this.Form2_FormClosed);
             this.TopMost = true;
 
             this.FormBorderStyle = FormBorderStyle.None;
 
-            this.WindowState = FormWindowState.Maximized;
+            this.WindowState = FormWindowState.Maximized;*/
         }
         private void Form2_FormClosed(object sender, FormClosedEventArgs e)
         {
@@ -94,6 +102,41 @@ namespace Netflix
             this.Hide();
             c.ShowDialog();
             this.Close();
+        }
+
+        private void Form2_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void showPasswordCheck_CheckedChanged(object sender, EventArgs e)
+        {
+            if (showPasswordCheck.Checked)
+            {
+                textBox2.PasswordChar = '\0';
+            }
+            else
+            {
+                textBox2.PasswordChar = '*';
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            textBox1.Text = "";
+            textBox2.Text = "";
+            dateTimePicker1.Value = new DateTime(2000, 01, 01);
+            comboBox2.SelectedIndex = comboBox2.FindStringExact("");
         }
     }
 }

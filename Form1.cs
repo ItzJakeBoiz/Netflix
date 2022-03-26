@@ -10,15 +10,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+/*things that have been deleted and idk if u need them or not
+=> oldSize = base.Size;
+*/
+
 namespace Netflix
 {
     public partial class Form1 : Form
     {
         
         private Size oldSize;
-        private void Form1_Load(object sender, EventArgs e) => oldSize = base.Size;
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
         
-        protected override void OnResize(System.EventArgs e)
+        /*protected override void OnResize(System.EventArgs e)
         {
             base.OnResize(e);
 
@@ -36,7 +43,7 @@ namespace Netflix
             int height = newSize.Height - oldSize.Height;
             control.Top += (control.Top * height) / oldSize.Height;
             control.Height += (control.Height * height) / oldSize.Height;
-        }
+        }*/
         public Form1()
         {
 
@@ -45,11 +52,11 @@ namespace Netflix
 
             this.TopMost = true;
 
-            this.FormBorderStyle = FormBorderStyle.None;
-            this.WindowState = FormWindowState.Maximized;
+            //this.FormBorderStyle = FormBorderStyle.None;
+            //this.WindowState = FormWindowState.Maximized;
 
-            this.SetStyle(ControlStyles.SupportsTransparentBackColor, true);
-            this.BackColor = Color.Transparent;
+            //this.SetStyle(ControlStyles.SupportsTransparentBackColor, true);
+            //this.BackColor = Color.Transparent;
 
         }
 
@@ -62,11 +69,6 @@ private void textBox_Leave(object sender, EventArgs e)
 }
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
         }
         
         private void button1_Click(object sender, EventArgs e)
@@ -138,6 +140,29 @@ private void textBox_Leave(object sender, EventArgs e)
         private void textBox3_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void Form1_Load_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (showPasswordCheck.Checked)
+            {
+                textBox2.PasswordChar = '\0';
+            }
+            else
+            {
+                textBox2.PasswordChar = '*';
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            textBox1.Text = "";
+            textBox2.Text = "";
         }
     }
 }
