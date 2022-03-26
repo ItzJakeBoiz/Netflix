@@ -33,6 +33,7 @@ namespace Netflix
             public string name { get; set; }
             public string link { get; set; }
             public string genre { get; set; }
+            public string liked { get; set; }
         }
         private void ResizeAll(Control control, Size newSize)
         {
