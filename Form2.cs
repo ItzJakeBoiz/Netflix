@@ -138,5 +138,10 @@ namespace Netflix
             dateTimePicker1.Value = new DateTime(2000, 01, 01);
             comboBox2.SelectedIndex = comboBox2.FindStringExact("");
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Environment.Exit(0);
+        }
     }
 }

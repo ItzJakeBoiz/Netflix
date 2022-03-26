@@ -42,6 +42,7 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.button4 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label3
@@ -117,7 +118,7 @@
             this.label2.Location = new System.Drawing.Point(46, 114);
             this.label2.Margin = new System.Windows.Forms.Padding(10, 0, 10, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(251, 46);
+            this.label2.Size = new System.Drawing.Size(245, 45);
             this.label2.TabIndex = 29;
             this.label2.Text = "Welcome Back";
             // 
@@ -192,12 +193,27 @@
             this.linkLabel1.Text = "Reset Password";
             this.linkLabel1.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(164)))), ((int)(((byte)(165)))), ((int)(((byte)(169)))));
             // 
+            // button4
+            // 
+            this.button4.BackgroundImage = global::Netflix.Properties.Resources.aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa;
+            this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.button4.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.button4.FlatAppearance.BorderSize = 0;
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.Location = new System.Drawing.Point(426, -2);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(52, 44);
+            this.button4.TabIndex = 40;
+            this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(467, 697);
+            this.Controls.Add(this.button4);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.button3);
@@ -236,6 +252,7 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.Button button4;
     }
 }
 
