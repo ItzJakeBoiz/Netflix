@@ -66,7 +66,7 @@ namespace Netflix
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Form1 c = new Form1();
+            Netflix c = new Netflix();
             this.Hide();
             c.ShowDialog();
             this.Close();
@@ -97,7 +97,7 @@ namespace Netflix
             string content = new StreamReader(response.GetResponseStream()).ReadToEnd();
             Label.CheckForIllegalCrossThreadCalls = false;
 
-            Form1 c = new Form1();
+            Netflix c = new Netflix();
             this.Hide();
             c.ShowDialog();
             this.Close();

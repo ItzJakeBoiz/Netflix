@@ -40,7 +40,6 @@ C:\Users\bdos\source\repos\aNetflix\obj\Release\Netflix.csproj.SuggestedBindingR
 C:\Users\bdos\source\repos\aNetflix\obj\Release\Interop.WMPLib.dll
 C:\Users\bdos\source\repos\aNetflix\obj\Release\AxInterop.WMPLib.dll
 C:\Users\bdos\source\repos\aNetflix\obj\Release\Netflix.csproj.ResolveComReference.cache
-C:\Users\bdos\source\repos\aNetflix\obj\Release\Netflix.Form1.resources
 C:\Users\bdos\source\repos\aNetflix\obj\Release\Netflix.Form2.resources
 C:\Users\bdos\source\repos\aNetflix\obj\Release\Netflix.Form3.resources
 C:\Users\bdos\source\repos\aNetflix\obj\Release\Netflix.Properties.Resources.resources
@@ -72,3 +71,4 @@ C:\Users\bdos\source\repos\aNetflix\bin\Release\System.ValueTuple.xml
 C:\Users\bdos\source\repos\aNetflix\bin\Release\Interop.WMPLib.dll
 C:\Users\bdos\source\repos\aNetflix\bin\Release\AxInterop.WMPLib.dll
 C:\Users\bdos\source\repos\aNetflix\obj\Release\Netflix.csproj.CopyComplete
+C:\Users\bdos\source\repos\aNetflix\obj\Release\Netflix.Netflix.resources

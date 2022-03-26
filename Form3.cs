@@ -105,7 +105,7 @@ namespace Netflix
                 button.Size = new Size(320, 180);
                 button.Click += new EventHandler(this.GreetingBtn_Click);
                 button.Text = video.name;
-                button.Font = new Font("Ariel", 22);
+                button.Font = new Font("Nirmala UI", 22);
                 button.Font = new Font(button.Font, FontStyle.Bold);
                 button.TextAlign = ContentAlignment.TopLeft;
 
@@ -140,6 +140,11 @@ namespace Netflix
         }
 
         private void webBrowser1_DocumentCompleted_1(object sender, WebBrowserDocumentCompletedEventArgs e)
+        {
+
+        }
+
+        private void webBrowser1_DocumentCompleted_2(object sender, WebBrowserDocumentCompletedEventArgs e)
         {
 
         }

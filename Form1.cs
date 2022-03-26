@@ -16,7 +16,7 @@ using System.Windows.Forms;
 
 namespace Netflix
 {
-    public partial class Form1 : Form
+    public partial class Netflix : Form
     {
         
         private void Form1_Load(object sender, EventArgs e)
@@ -43,7 +43,7 @@ namespace Netflix
             control.Top += (control.Top * height) / oldSize.Height;
             control.Height += (control.Height * height) / oldSize.Height;
         }*/
-        public Form1()
+        public Netflix()
         {
 
             InitializeComponent();
