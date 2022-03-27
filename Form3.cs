@@ -119,10 +119,13 @@ namespace Netflix
                 text.Text = video.name;
                 text.Font = new Font("Nirmala UI", 20);
                 text.Font = new Font(text.Font, FontStyle.Bold);
-
+               
 
             }
-                
+            var returnbutton = new Button();
+            returnbutton.Parent = this;
+            returnbutton.Text = "Logout";
+            returnbutton.Location = new Point(0, 1000);
             
         }
         void GreetingBtn_Click(Object sender, EventArgs e)

@@ -57,7 +57,7 @@
             this.label2.Location = new System.Drawing.Point(46, 51);
             this.label2.Margin = new System.Windows.Forms.Padding(10, 0, 10, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(197, 45);
+            this.label2.Size = new System.Drawing.Size(164, 37);
             this.label2.TabIndex = 12;
             this.label2.Text = "Get Started";
             this.label2.Click += new System.EventHandler(this.label2_Click);
@@ -131,7 +131,7 @@
             this.dateTimePicker1.Location = new System.Drawing.Point(54, 443);
             this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(363, 30);
+            this.dateTimePicker1.Size = new System.Drawing.Size(363, 26);
             this.dateTimePicker1.TabIndex = 15;
             this.dateTimePicker1.Value = new System.DateTime(2000, 1, 1, 0, 0, 0, 0);
             // 
@@ -152,8 +152,9 @@
             this.comboBox2.Location = new System.Drawing.Point(54, 383);
             this.comboBox2.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(363, 31);
+            this.comboBox2.Size = new System.Drawing.Size(363, 27);
             this.comboBox2.TabIndex = 16;
+            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
             // label3
             // 
@@ -171,7 +172,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(50, 178);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(89, 23);
+            this.label1.Size = new System.Drawing.Size(76, 19);
             this.label1.TabIndex = 18;
             this.label1.Text = "Username";
             this.label1.Click += new System.EventHandler(this.label1_Click);
@@ -181,7 +182,7 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(50, 249);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(84, 23);
+            this.label4.Size = new System.Drawing.Size(73, 19);
             this.label4.TabIndex = 19;
             this.label4.Text = "Password";
             // 
@@ -190,7 +191,7 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(50, 354);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(119, 23);
+            this.label5.Size = new System.Drawing.Size(100, 19);
             this.label5.TabIndex = 20;
             this.label5.Text = "Your Interests";
             // 
@@ -199,7 +200,7 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(50, 414);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(115, 23);
+            this.label6.Size = new System.Drawing.Size(94, 19);
             this.label6.TabIndex = 21;
             this.label6.Text = "Date of Birth";
             // 
@@ -208,7 +209,7 @@
             this.showPasswordCheck.AutoSize = true;
             this.showPasswordCheck.Location = new System.Drawing.Point(262, 323);
             this.showPasswordCheck.Name = "showPasswordCheck";
-            this.showPasswordCheck.Size = new System.Drawing.Size(155, 27);
+            this.showPasswordCheck.Size = new System.Drawing.Size(132, 23);
             this.showPasswordCheck.TabIndex = 22;
             this.showPasswordCheck.Text = "Show Password";
             this.showPasswordCheck.UseVisualStyleBackColor = true;
@@ -235,7 +236,7 @@
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(129, 627);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(218, 23);
+            this.label7.Size = new System.Drawing.Size(185, 19);
             this.label7.TabIndex = 24;
             this.label7.Text = "Already Have an Account?";
             // 
@@ -244,7 +245,7 @@
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(50, 107);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(54, 23);
+            this.label8.Size = new System.Drawing.Size(45, 19);
             this.label8.TabIndex = 25;
             this.label8.Text = "Email";
             // 
@@ -277,7 +278,7 @@
             // 
             // Form2
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 23F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(485, 744);

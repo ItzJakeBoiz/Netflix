@@ -36,7 +36,7 @@
             this.flowLayoutPanel1.Location = new System.Drawing.Point(1, 2);
             this.flowLayoutPanel1.MinimumSize = new System.Drawing.Size(300, 200);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1920, 1080);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1920, 1000);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
             // Form3

@@ -45,7 +45,7 @@ namespace Netflix
 
         private void button1_Click(object sender, EventArgs e)
         {
-            WebRequest request = WebRequest.Create("https://backend-server.18jchadwick.repl.co/resetpassword/" + textBox1.Text);
+            WebRequest request = WebRequest.Create("https://backend-server.18jchadwick.repl.co/api/reset/" + textBox1.Text);
             request.Proxy = null;
             request.Credentials = CredentialCache.DefaultCredentials;
             HttpWebResponse response = (HttpWebResponse)request.GetResponse();

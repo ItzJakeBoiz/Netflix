@@ -109,3 +109,4 @@ C:\Users\itzja\Source\Repos\ItzJakeBoiz\Netflix\obj\Release\Netflix.csproj.CoreC
 C:\Users\itzja\Source\Repos\ItzJakeBoiz\Netflix\obj\Release\Netflix.csproj.CopyComplete
 C:\Users\itzja\Source\Repos\ItzJakeBoiz\Netflix\obj\Release\Netflix.exe
 C:\Users\itzja\Source\Repos\ItzJakeBoiz\Netflix\obj\Release\Netflix.pdb
+C:\Users\itzja\source\repos\ItzJakeBoiz\Netflix\obj\Release\Netflix.Form4.resources

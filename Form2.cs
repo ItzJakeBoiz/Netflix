@@ -143,5 +143,10 @@ namespace Netflix
         {
             Environment.Exit(0);
         }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
