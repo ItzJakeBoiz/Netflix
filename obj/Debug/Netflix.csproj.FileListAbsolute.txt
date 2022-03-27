@@ -63,7 +63,6 @@ C:\Users\itzja\source\repos\ItzJakeBoiz\Netflix\obj\Debug\Netflix.csproj.Suggest
 C:\Users\itzja\source\repos\ItzJakeBoiz\Netflix\obj\Debug\Interop.WMPLib.dll
 C:\Users\itzja\source\repos\ItzJakeBoiz\Netflix\obj\Debug\AxInterop.WMPLib.dll
 C:\Users\itzja\source\repos\ItzJakeBoiz\Netflix\obj\Debug\Netflix.csproj.ResolveComReference.cache
-C:\Users\itzja\source\repos\ItzJakeBoiz\Netflix\obj\Debug\Netflix.Form1.resources
 C:\Users\itzja\source\repos\ItzJakeBoiz\Netflix\obj\Debug\Netflix.Form2.resources
 C:\Users\itzja\source\repos\ItzJakeBoiz\Netflix\obj\Debug\Netflix.Form3.resources
 C:\Users\itzja\source\repos\ItzJakeBoiz\Netflix\obj\Debug\Netflix.Properties.Resources.resources
@@ -109,3 +108,5 @@ C:\Users\bdos\source\repos\aNetflix\obj\Debug\Netflix.csproj.CoreCompileInputs.c
 C:\Users\bdos\source\repos\aNetflix\obj\Debug\Netflix.csproj.CopyComplete
 C:\Users\bdos\source\repos\aNetflix\obj\Debug\Netflix.exe
 C:\Users\bdos\source\repos\aNetflix\obj\Debug\Netflix.pdb
+C:\Users\itzja\Source\Repos\ItzJakeBoiz\Netflix\obj\Debug\Netflix.Netflix.resources
+C:\Users\itzja\source\repos\ItzJakeBoiz\Netflix\obj\Debug\Netflix.Form4.resources

@@ -66,34 +66,79 @@ private void textBox_Leave(object sender, EventArgs e)
 {
 
 }
+        public class WebResult
+        {
+            public string Response { get; set; }
+            public bool WasSuccessful { get; set; }
+            public HttpStatusCode? StatusCode { get; set; }
+        }
+
+        public WebResult GetUrlContents(string url)
+        {
+            try
+            {
+                var request = (HttpWebRequest)WebRequest.Create(url);
+
+                using (var response = (HttpWebResponse)request.GetResponse())
+                using (var responseStream = new StreamReader(response.GetResponseStream()))
+                {
+                    return new WebResult
+                    {
+                        WasSuccessful = true,
+                        Response = responseStream.ReadToEnd(),
+                        StatusCode = response.StatusCode
+                    };
+                }
+            }
+            catch (WebException webException)
+            {
+                return new WebResult
+                {
+                    Response = null,
+                    WasSuccessful = false,
+                    StatusCode = (webException.Response as HttpWebResponse)?.StatusCode
+                };
+            }
+        }
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
         }
-        
+
         private void button1_Click(object sender, EventArgs e)
         {
-            WebRequest request = WebRequest.Create("https://backend-server.18jchadwick.repl.co/api/token/" + textBox1.Text + "/" + textBox2.Text);
-            request.Proxy = null;
-            request.Credentials = CredentialCache.DefaultCredentials;
-            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-            string content = new StreamReader(response.GetResponseStream()).ReadToEnd();
             Label.CheckForIllegalCrossThreadCalls = false;
-            if (content == "null") {
-                label3.Text = "Incorrect username or password";
+            var web = GetUrlContents("https://backend-server.18jchadwick.repl.co/api/token/" + textBox1.Text + "/" + textBox2.Text);
+            if (web.WasSuccessful == false)
+            {
+                label3.Text = "An internal error occured.";
                 Task t = Task.Run(() =>
                 {
                     Task.Delay(2500).Wait();
                     label3.Text = "";
 
                 });
-                
             }
             else
             {
-                Form3 c = new Form3(content);
-                this.Hide();
-                c.ShowDialog();
-                this.Close();
+                string content = web.Response;
+                if (content == "null")
+                {
+                    label3.Text = "Incorrect username or password";
+                    Task t = Task.Run(() =>
+                    {
+                        Task.Delay(2500).Wait();
+                        label3.Text = "";
+
+                    });
+
+                }
+                else
+                {
+                    Form3 c = new Form3(content);
+                    this.Hide();
+                    c.ShowDialog();
+                    this.Close();
+                }
             }
         }
 
@@ -167,6 +212,19 @@ private void textBox_Leave(object sender, EventArgs e)
         private void button4_Click(object sender, EventArgs e)
         {
             Environment.Exit(0);
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Form4 c = new Form4();
+            this.Hide();
+            c.ShowDialog();
+            this.Close();
         }
     }
 }

@@ -95,45 +95,160 @@ namespace Netflix
             Console.WriteLine(videos);
             foreach (Comments video in videos)
             {
+                
+                var panel = new Panel();
+                panel.Margin = new Padding(0,0,0,0);
+                panel.Show();
+                panel.Size = new Size(320, 220);
+                panel.Parent = flowLayoutPanel1;
                 Console.WriteLine(video);
                 var button = new Button();
                 button.Text = "";
                 button.BackgroundImageLayout = ImageLayout.Center;
-                button.BackgroundImage = GetImageFromPicPath("https://img.youtube.com/vi/"+ video.link + "/mqdefault.jpg");
-                
-                button.Parent = flowLayoutPanel1;
+                button.BackgroundImage = GetImageFromPicPath("https://img.youtube.com/vi/" + video.link + "/mqdefault.jpg");
+                button.Margin = new Padding(0, 0, 0, 0);
+                button.Parent = panel;
                 button.Size = new Size(320, 180);
                 button.Click += new EventHandler(this.GreetingBtn_Click);
-                button.Text = video.name;
-                button.Font = new Font("Nirmala UI", 22);
-                button.Font = new Font(button.Font, FontStyle.Bold);
-                button.TextAlign = ContentAlignment.TopLeft;
+                button.Name = video.link;
+                button.Location = new Point(0, 40);
+                var text = new Label();
+                text.Margin = new Padding(0, 0, 0, 0);
+                text.Size = new Size(220, 40);
+                text.Parent = panel;
+                text.Text = video.name;
+                text.Font = new Font("Nirmala UI", 20);
+                text.Font = new Font(text.Font, FontStyle.Bold);
 
 
             }
                 
             
         }
-        void GreetingBtn_Click(Object sender,EventArgs e)
+        void GreetingBtn_Click(Object sender, EventArgs e)
         {
             foreach (Comments video in Global.Videos)
             {
-                if(video.name == (sender as Button).Text)
+                if (video.link == (sender as Button).Name)
                 {
                     flowLayoutPanel1.Visible = false;
-                    webBrowser1.Visible = true;
+                    var webBrowser1 = new WebBrowser();
+                    webBrowser1.Size = new Size(1920, 1020);
+                    webBrowser1.Parent = this;
                     var embed = $"<html><head>" +
     "<meta http-equiv=\"X-UA-Compatible\" content=\"IE=Edge\"/>" +
     "</head><body>" +
-    "<iframe width=1890\"\" height=1050 src=\"{0}\"" +
-    "frameborder = \"0\" allow = \" encrypted-media\"></iframe>" +
+    "<iframe width=1920 height=1020 border=none src=\"{0}\"" +
+    "frameborder=0 allow = \" encrypted-media\" frameborder=\"0\" allowfullscreen></iframe>" +
     "</body></html>";
-                    var url = "https://www.youtube.com/embed/"+ video.link;
+                    var url = "https://www.youtube.com/embed/" + video.link + "?rel=0&autoplay=1&fs=1";
                     webBrowser1.DocumentText = string.Format(embed, url);
+                    webBrowser1.Name = "WEB";
+                    var optionspannel = new Panel();
+                    optionspannel.Name = "Options";
+                    optionspannel.Dock = DockStyle.Bottom;
+                    optionspannel.Parent = this;
+                    optionspannel.Size = new Size(1920, 60);
+                    var likebutton = new Button();
+                    Console.WriteLine(video.liked);
+                    if (video.liked == "true")
+                    {
+                        likebutton.Image = GetImageFromPicPath("https://cdn.discordapp.com/attachments/758677986756395038/957718243630514266/liked.png");
+                        likebutton.Name = "LIKED";
+                    }
+                    else
+                    {
+                        likebutton.Image = GetImageFromPicPath("https://cdn.discordapp.com/attachments/758677986756395038/957718034045345802/unknown.png");
+                        likebutton.Name = "LIKE";
+                    }
+                    likebutton.Tag = video.name;
+                    likebutton.Click += new EventHandler(this.LikeButton);
+                    
+                    likebutton.Size = new Size(60, 60);
+                    likebutton.Parent = optionspannel;
+                    var backbutton = new Button();
+                    backbutton.Parent = optionspannel;
+                    backbutton.Size = new Size(60, 60);
+                    backbutton.Text = "Back";
+                    backbutton.Font = new Font("Nirmala UI", 10);
+                    backbutton.Font = new Font(backbutton.Font, FontStyle.Bold);
+                    backbutton.Location = new Point(1860, 0);
+                    backbutton.Click += new EventHandler(this.BackButton);
                 }
             }
         }
+        private void BackButton(Object sender, EventArgs e)
+        {
+            this.Controls.RemoveByKey("Options");
+            foreach (var c in this.Controls.OfType<WebBrowser>().Where(x => x.Name == "WEB"))
+            { 
+                c.DocumentText = "";
+            }
+            this.Controls.RemoveByKey("WEB");
+            flowLayoutPanel1.Visible = true;
 
+        }
+        public class WebResult
+        {
+            public string Response { get; set; }
+            public bool WasSuccessful { get; set; }
+            public HttpStatusCode? StatusCode { get; set; }
+        }
+        public WebResult GetUrlContents(string url)
+        {
+            try
+            {
+                var request = (HttpWebRequest)WebRequest.Create(url);
+
+                using (var response = (HttpWebResponse)request.GetResponse())
+                using (var responseStream = new StreamReader(response.GetResponseStream()))
+                {
+                    return new WebResult
+                    {
+                        WasSuccessful = true,
+                        Response = responseStream.ReadToEnd(),
+                        StatusCode = response.StatusCode
+                    };
+                }
+            }
+            catch (WebException webException)
+            {
+                return new WebResult
+                {
+                    Response = null,
+                    WasSuccessful = false,
+                    StatusCode = (webException.Response as HttpWebResponse)?.StatusCode
+                };
+            }
+        }
+        private void LikeButton(Object sender, EventArgs e)
+        {
+            Button x = sender as Button;
+
+            if (x.Name == "LIKED")
+            {
+
+                if (GetUrlContents("https://backend-server.18jchadwick.repl.co/api/like/" + Global.Token + "/" + x.Tag).WasSuccessful != false)
+                {
+                    x.Image = GetImageFromPicPath("https://cdn.discordapp.com/attachments/758677986756395038/957718034045345802/unknown.png");
+                    x.Name = "LIKE";
+                    WebRequest request = WebRequest.Create("https://backend-server.18jchadwick.repl.co/api/like/" + Global.Token + "/" + x.Tag);
+                    request.Proxy = null;
+                    request.Credentials = CredentialCache.DefaultCredentials;
+                    HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+                }
+            }
+
+            else
+            {
+                if (GetUrlContents("https://backend-server.18jchadwick.repl.co/api/like/" + Global.Token + "/" + x.Tag).WasSuccessful != false)
+                {
+                    x.Image = GetImageFromPicPath("https://cdn.discordapp.com/attachments/758677986756395038/957718243630514266/liked.png");
+                x.Name = "LIKED";
+            }
+            }
+            
+        }
             private void webBrowser1_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
         {
 
@@ -145,6 +260,11 @@ namespace Netflix
         }
 
         private void webBrowser1_DocumentCompleted_2(object sender, WebBrowserDocumentCompletedEventArgs e)
+        {
+
+        }
+
+        private void Form3_Load(object sender, EventArgs e)
         {
 
         }

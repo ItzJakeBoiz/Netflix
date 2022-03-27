@@ -62,7 +62,7 @@
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(135, 500);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(200, 23);
+            this.label7.Size = new System.Drawing.Size(167, 19);
             this.label7.TabIndex = 38;
             this.label7.Text = "Don\'t Have an Account?";
             // 
@@ -87,7 +87,7 @@
             this.showPasswordCheck.AutoSize = true;
             this.showPasswordCheck.Location = new System.Drawing.Point(262, 322);
             this.showPasswordCheck.Name = "showPasswordCheck";
-            this.showPasswordCheck.Size = new System.Drawing.Size(155, 27);
+            this.showPasswordCheck.Size = new System.Drawing.Size(132, 23);
             this.showPasswordCheck.TabIndex = 36;
             this.showPasswordCheck.Text = "Show Password";
             this.showPasswordCheck.UseVisualStyleBackColor = true;
@@ -98,7 +98,7 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(50, 248);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(84, 23);
+            this.label4.Size = new System.Drawing.Size(73, 19);
             this.label4.TabIndex = 33;
             this.label4.Text = "Password";
             // 
@@ -107,7 +107,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(50, 177);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(89, 23);
+            this.label1.Size = new System.Drawing.Size(76, 19);
             this.label1.TabIndex = 32;
             this.label1.Text = "Username";
             // 
@@ -119,9 +119,10 @@
             this.label2.Location = new System.Drawing.Point(46, 114);
             this.label2.Margin = new System.Windows.Forms.Padding(10, 0, 10, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(245, 45);
+            this.label2.Size = new System.Drawing.Size(203, 37);
             this.label2.TabIndex = 29;
             this.label2.Text = "Welcome Back";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // button2
             // 
@@ -139,6 +140,7 @@
             // 
             // button1
             // 
+            this.button1.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(86)))), ((int)(((byte)(174)))));
             this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1.FlatAppearance.BorderSize = 0;
@@ -166,6 +168,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(363, 28);
             this.textBox1.TabIndex = 26;
+            this.textBox1.Text = "Username";
             // 
             // textBox2
             // 
@@ -180,6 +183,7 @@
             this.textBox2.PasswordChar = '•';
             this.textBox2.Size = new System.Drawing.Size(363, 28);
             this.textBox2.TabIndex = 25;
+            this.textBox2.Text = "Password";
             // 
             // linkLabel1
             // 
@@ -188,11 +192,12 @@
             this.linkLabel1.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(164)))), ((int)(((byte)(165)))), ((int)(((byte)(169)))));
             this.linkLabel1.Location = new System.Drawing.Point(50, 322);
             this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(132, 23);
+            this.linkLabel1.Size = new System.Drawing.Size(113, 19);
             this.linkLabel1.TabIndex = 39;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "Reset Password";
             this.linkLabel1.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(164)))), ((int)(((byte)(165)))), ((int)(((byte)(169)))));
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
             // button4
             // 
@@ -210,7 +215,7 @@
             // 
             // Netflix
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 23F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(467, 697);
