@@ -226,5 +226,10 @@ private void textBox_Leave(object sender, EventArgs e)
             c.ShowDialog();
             this.Close();
         }
+
+        private void textBox1_TextChanged_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }
